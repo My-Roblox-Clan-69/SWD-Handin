@@ -1,0 +1,15 @@
+C:\Users\simon\4-semester\swd\SWD-Handin\DocumentApprovalWorkflow\bin\Debug\net9.0\DocumentApprovalWorkflow.exe
+C:\Users\simon\4-semester\swd\SWD-Handin\DocumentApprovalWorkflow\bin\Debug\net9.0\DocumentApprovalWorkflow.deps.json
+C:\Users\simon\4-semester\swd\SWD-Handin\DocumentApprovalWorkflow\bin\Debug\net9.0\DocumentApprovalWorkflow.runtimeconfig.json
+C:\Users\simon\4-semester\swd\SWD-Handin\DocumentApprovalWorkflow\bin\Debug\net9.0\DocumentApprovalWorkflow.dll
+C:\Users\simon\4-semester\swd\SWD-Handin\DocumentApprovalWorkflow\bin\Debug\net9.0\DocumentApprovalWorkflow.pdb
+C:\Users\simon\4-semester\swd\SWD-Handin\DocumentApprovalWorkflow\obj\Debug\net9.0\DocumentApprovalWorkflow.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\simon\4-semester\swd\SWD-Handin\DocumentApprovalWorkflow\obj\Debug\net9.0\DocumentApprovalWorkflow.AssemblyInfoInputs.cache
+C:\Users\simon\4-semester\swd\SWD-Handin\DocumentApprovalWorkflow\obj\Debug\net9.0\DocumentApprovalWorkflow.AssemblyInfo.cs
+C:\Users\simon\4-semester\swd\SWD-Handin\DocumentApprovalWorkflow\obj\Debug\net9.0\DocumentApprovalWorkflow.csproj.CoreCompileInputs.cache
+C:\Users\simon\4-semester\swd\SWD-Handin\DocumentApprovalWorkflow\obj\Debug\net9.0\DocumentApprovalWorkflow.sourcelink.json
+C:\Users\simon\4-semester\swd\SWD-Handin\DocumentApprovalWorkflow\obj\Debug\net9.0\DocumentApprovalWorkflow.dll
+C:\Users\simon\4-semester\swd\SWD-Handin\DocumentApprovalWorkflow\obj\Debug\net9.0\refint\DocumentApprovalWorkflow.dll
+C:\Users\simon\4-semester\swd\SWD-Handin\DocumentApprovalWorkflow\obj\Debug\net9.0\DocumentApprovalWorkflow.pdb
+C:\Users\simon\4-semester\swd\SWD-Handin\DocumentApprovalWorkflow\obj\Debug\net9.0\DocumentApprovalWorkflow.genruntimeconfig.cache
+C:\Users\simon\4-semester\swd\SWD-Handin\DocumentApprovalWorkflow\obj\Debug\net9.0\ref\DocumentApprovalWorkflow.dll
