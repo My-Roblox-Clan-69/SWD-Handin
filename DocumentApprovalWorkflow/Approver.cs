@@ -1,8 +1,8 @@
 namespace DocumentApprovalWorkflow;
 
-public abstract class Approver
+public abstract class Approver : IApprover
 {
-    protected Approver _nextApprover;
+    protected IApprover _nextApprover;
     protected string _role;
     protected int _maxImportance;
     protected List<Department> _allowedDepartments;
@@ -14,7 +14,7 @@ public abstract class Approver
         _allowedDepartments = allowedDepartments;
     }
 
-    public void SetNext(Approver nextApprover)
+    public void SetNext(IApprover nextApprover)
     {
         _nextApprover = nextApprover;
     }
@@ -23,7 +23,7 @@ public abstract class Approver
     {
         var doc = request.Document;
 
-        if (!doc.RequiredApprovals.Contains(_role))
+        if (!request.RequiredApprovals.Contains(_role))
         {
             request.Log($"{_role} skipped - not required for {doc.Title}.");
             PassToNext(request);
@@ -33,7 +33,7 @@ public abstract class Approver
         if (!_allowedDepartments.Contains(doc.Department))
         {
             request.Log($"{_role} rejected {doc.Title} - wrong department ({doc.Department}).");
-            doc.RejectionReason = $"Department mismatch for {_role}";
+            request.RejectionReason = $"Department mismatch for {_role}";
             return;
         }
 
@@ -52,11 +52,11 @@ public abstract class Approver
         }
 
         request.Log($"{_role} approved {doc.Title}.");
-        doc.RequiredApprovals.Remove(_role);
+        request.RequiredApprovals.Remove(_role);
 
-        if (doc.RequiredApprovals.Count == 0)
+        if (request.RequiredApprovals.Count == 0)
         {
-            doc.IsApproved = true;
+            request.IsApproved = true;
             request.Log($"{doc.Title} fully approved!");
         }
         else
@@ -71,9 +71,9 @@ public abstract class Approver
         {
             _nextApprover.ProcessRequest(request);
         }
-        else if (!request.Document.IsApproved)
+        else if (!request.IsApproved)
         {
-            request.Document.RejectionReason = "No further approvers available.";
+            request.RejectionReason = "No further approvers available.";
             request.Log($"{request.Document.Title} rejected - incomplete approvals.");
         }
     }

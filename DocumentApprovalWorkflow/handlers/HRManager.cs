@@ -9,8 +9,8 @@ public class HRManager : Approver
         if (request.Document.Department == Department.HR && request.Document.ImportanceLevel <= 10)
         {
             request.Log("HR Manager fast-tracked approval due to low importance.");
-            request.Document.RequiredApprovals.Remove(_role);
-            request.Document.IsApproved = true;
+            request.RequiredApprovals.Remove(_role);
+            request.IsApproved = true;
         }
         else
         {

@@ -1,48 +1,39 @@
-﻿using DocumentApprovalWorkflow.Handlers;
-
-namespace DocumentApprovalWorkflow;
+﻿namespace DocumentApprovalWorkflow;
 
 class Program
 {
     static void Main(string[] args)
     {
-        var hrManager = new HRManager();
-        var financeDirector = new FinanceDirector();
-        var engineeringLead = new EngineeringLead();
-        var ceo = new CEO();
-
-        hrManager.SetNext(financeDirector);
-        financeDirector.SetNext(ceo);
+        IApproverFactory factory = new ApproverFactory();
+        var chain = factory.CreateChain();
 
         var documents = new List<Document>
         {
-            new Document("Employee Onboarding Form", 5, Department.HR, Urgency.Low, new List<string> { "HR Manager" }),
-            new Document("Annual Budget", 40, Department.Finance, Urgency.Medium, new List<string> { "Finance Director", "CEO" }),
-            new Document("New Product Specs", 25, Department.Engineering, Urgency.High, new List<string> { "Engineering Lead" }),
-            new Document("Merger Agreement", 80, Department.Executive, Urgency.High, new List<string> { "Finance Director", "CEO" })
+            new Document("Employee Onboarding Form", 5, Department.HR, Urgency.Low),
+            new Document("Annual Budget", 40, Department.Finance, Urgency.Medium),
+            new Document("New Product Specs", 25, Department.Engineering, Urgency.High),
+            new Document("Merger Agreement", 80, Department.Executive, Urgency.High)
         };
 
-        foreach (var doc in documents)
+        var approvalRequests = new List<ApprovalRequest>
         {
-            Console.WriteLine($"\nProcessing {doc.Title} (Dept: {doc.Department}, Urgency: {doc.Urgency}, Importance: {doc.ImportanceLevel})...");
-            var request = new ApprovalRequest(doc);
+            new ApprovalRequest(documents[0], new List<string> { "HR Manager" }),
+            new ApprovalRequest(documents[1], new List<string> { "Finance Director", "CEO" }),
+            new ApprovalRequest(documents[2], new List<string> { "Engineering Lead" }),
+            new ApprovalRequest(documents[3], new List<string> { "Finance Director", "CEO" })
+        };
 
-            Approver startingApprover = doc.Department switch
-            {
-                Department.HR => hrManager,
-                Department.Finance => financeDirector,
-                Department.Engineering => engineeringLead,
-                _ => ceo
-            };
-
-            startingApprover.ProcessRequest(request);
+        foreach (var request in approvalRequests)
+        {
+            Console.WriteLine($"\nProcessing {request.Document.Title} (Dept: {request.Document.Department}, Urgency: {request.Document.Urgency}, Importance: {request.Document.ImportanceLevel})...");
+            chain.ProcessRequest(request);
 
             Console.WriteLine("Approval Log:");
             foreach (var log in request.ApprovalLog)
             {
                 Console.WriteLine(log);
             }
-            Console.WriteLine($"Status: {(doc.IsApproved ? "Approved" : $"Rejected - {doc.RejectionReason}")}");
+            Console.WriteLine($"Status: {(request.IsApproved ? "Approved" : $"Rejected - {request.RejectionReason}")}");
         }
     }
 }

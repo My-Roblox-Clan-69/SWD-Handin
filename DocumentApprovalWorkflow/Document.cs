@@ -21,18 +21,12 @@ public class Document
     public int ImportanceLevel { get; }
     public Department Department { get; }
     public Urgency Urgency { get; }
-    public List<string> RequiredApprovals { get; }
-    public bool IsApproved { get; set; }
-    public string RejectionReason { get; set; }
 
-    public Document(string title, int importanceLevel, Department department, Urgency urgency, List<string> requiredApprovals)
+    public Document(string title, int importanceLevel, Department department, Urgency urgency)
     {
         Title = title;
         ImportanceLevel = importanceLevel;
         Department = department;
         Urgency = urgency;
-        RequiredApprovals = requiredApprovals;
-        IsApproved = false;
-        RejectionReason = string.Empty;
     }
 }

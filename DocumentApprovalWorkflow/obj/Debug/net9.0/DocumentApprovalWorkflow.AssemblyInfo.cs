@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DocumentApprovalWorkflow")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3275752414771059bedc72dc6ced987ef0e87f4b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c0aa410060651e5b909252586d07a1f70822e030")]
 [assembly: System.Reflection.AssemblyProductAttribute("DocumentApprovalWorkflow")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DocumentApprovalWorkflow")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
